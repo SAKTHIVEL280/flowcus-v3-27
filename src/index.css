@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FLOWCUS Paper Theme Design System - Hand-drawn aesthetic with pencil and color pencil vibes */
+
+@layer base {
+  :root {
+    /* Paper Theme - Light Mode */
+    --background: 45 100% 99%;
+    --foreground: 215 25% 15%;
+    
+    /* Paper texture and sketched elements */
+    --paper-white: 45 100% 99%;
+    --paper-cream: 45 50% 96%;
+    --paper-lines: 210 90% 55%;
+    
+    /* Pencil colors - hand-drawn aesthetic */
+    --pencil-graphite: 215 25% 15%;
+    --pencil-blue: 210 90% 55%;
+    --pencil-red: 355 85% 60%;
+    --pencil-green: 145 65% 45%;
+    --pencil-orange: 25 95% 60%;
+    --pencil-purple: 270 70% 60%;
+    
+    /* Sketched shadows and outlines */
+    --sketch-shadow: 215 15% 75%;
+    --sketch-light: 215 10% 90%;
+    
+    --card: 45 50% 96%;
+    --card-foreground: 215 25% 15%;
+    
+    --popover: 45 100% 99%;
+    --popover-foreground: 215 25% 15%;
+    
+    --primary: 210 90% 55%;
+    --primary-foreground: 45 100% 99%;
+    
+    --secondary: 210 15% 85%;
+    --secondary-foreground: 215 25% 15%;
+    
+    --muted: 210 15% 88%;
+    --muted-foreground: 215 15% 45%;
+    
+    --accent: 25 95% 60%;
+    --accent-foreground: 45 100% 99%;
+    
+    --destructive: 355 85% 60%;
+    --destructive-foreground: 45 100% 99%;
+    
+    --border: 210 15% 85%;
+    --input: 45 50% 96%;
+    --ring: 210 90% 55%;
+    
+    /* Special gradients for paper theme - soft and elegant */
+    --gradient-paper: linear-gradient(135deg, hsl(45 100% 99%), hsl(45 50% 96%), hsl(210 40% 95%));
+    --gradient-sketch: linear-gradient(45deg, hsl(210 40% 85%), hsl(270 30% 88%), hsl(25 45% 85%));
+    --gradient-pencil: linear-gradient(90deg, hsl(355 40% 85%), hsl(25 50% 87%), hsl(210 35% 90%));
+    
+    /* Paper shadows - soft and subtle */
+    --shadow-paper: 0 2px 12px hsl(215 15% 75% / 0.08);
+    --shadow-sketch: 0 4px 20px hsl(210 40% 55% / 0.12);
+    --shadow-float: 0 8px 40px hsl(215 15% 75% / 0.15);
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Paper Theme - Night mode paper */
+    --background: 215 25% 3%;
+    --foreground: 45 100% 95%;
+    
+    --paper-white: 215 25% 3%;
+    --paper-cream: 215 20% 6%;
+    --paper-lines: 215 15% 25%;
+    
+    --pencil-graphite: 45 100% 95%;
+    --pencil-blue: 210 80% 65%;
+    --pencil-red: 355 75% 70%;
+    --pencil-green: 145 55% 55%;
+    --pencil-orange: 25 85% 70%;
+    --pencil-purple: 270 60% 70%;
+    
+    --sketch-shadow: 215 15% 20%;
+    --sketch-light: 215 10% 30%;
+    
+    --card: 215 20% 6%;
+    --card-foreground: 45 100% 95%;
+    
+    --popover: 215 25% 3%;
+    --popover-foreground: 45 100% 95%;
+    
+    --primary: 210 80% 65%;
+    --primary-foreground: 215 25% 8%;
+    
+    --secondary: 215 15% 25%;
+    --secondary-foreground: 45 100% 95%;
+    
+    --muted: 215 15% 20%;
+    --muted-foreground: 215 10% 65%;
+    
+    --accent: 25 85% 70%;
+    --accent-foreground: 215 25% 8%;
+    
+    --destructive: 355 75% 70%;
+    --destructive-foreground: 215 25% 8%;
+    
+    --border: 215 15% 25%;
+    --input: 215 20% 6%;
+    --ring: 210 80% 65%;
+    
+    --gradient-paper: linear-gradient(135deg, hsl(215 25% 3%), hsl(215 20% 6%), hsl(215 15% 10%));
+    --gradient-sketch: linear-gradient(45deg, hsl(210 80% 65%), hsl(270 60% 70%), hsl(25 75% 65%));
+    --gradient-pencil: linear-gradient(90deg, hsl(355 75% 70%), hsl(25 85% 70%), hsl(210 70% 65%));
+    
+    --shadow-paper: 0 2px 12px hsl(0 0% 0% / 0.4);
+    --shadow-sketch: 0 4px 20px hsl(210 80% 65% / 0.25);
+    --shadow-float: 0 8px 40px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Prevent overscroll bounce on mobile */
+    overscroll-behavior: none;
+    /* Improve touch scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    /* Prevent zoom on form inputs */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+    
+    /* Better tap targets for mobile */
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Optimize text for mobile reading */
+    p, div {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+
+  /* PWA fullscreen optimizations */
+  @media (display-mode: standalone) {
+    body {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+  }
+
+  /* Touch hover states optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\:scale-105:hover {
+      transform: none;
+    }
+    
+    .hover\:bg-paper-cream:hover {
+      background-color: initial;
+    }
+  }
+}

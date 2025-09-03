@@ -1,0 +1,48 @@
+/* Custom styles for FLOWCUS paper theme */
+
+.paper-texture {
+  background-image: 
+    linear-gradient(90deg, transparent 79px, hsl(var(--paper-lines)) 79px, hsl(var(--paper-lines)) 81px, transparent 81px),
+    linear-gradient(hsl(var(--paper-lines)) .1em, transparent .1em);
+  background-size: 80px 1.2em;
+}
+
+.sketch-border {
+  position: relative;
+}
+
+.sketch-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px solid hsl(var(--pencil-blue));
+  border-radius: inherit;
+  filter: url(#rough);
+}
+
+/* Smooth animations for paper elements */
+.paper-float {
+  animation: paper-float 6s ease-in-out infinite;
+}
+
+.pencil-wiggle {
+  animation: pencil-wiggle 0.5s ease-in-out infinite;
+}
+
+/* Custom scrollbar for paper theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--paper-cream));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--pencil-blue));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--pencil-purple));
+}
